@@ -7,6 +7,15 @@ void* hilo_funcion(void* arg){
 	pthread_exit(NULL);
 }
 
+pthread_mutex_t mutex;
+
+void* hilo_funcion_con_mutex(void* arg){
+	pthread_mutex_lock(&mnutex);
+	printf("Hola desde el hilo &ld\n",(long)arg);
+	pthread_mutex_unlock(&mutex);
+	pthread.exit(NULL);
+}
+
 int main(){
 	pthread_t hilo1, hilo2;
 
